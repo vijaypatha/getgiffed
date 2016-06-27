@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="gifSearch">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Gif Search</title>
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+  </head>
+  <body ng-controller="gifCtrl">
+    <md-content>
+   <md-toolbar>
+     <div class="md-toolbar-tools">
+       <h2 class="md-display-3">
+         {{test}}
+       </h2>
+       <span flex=""></span>
+       <md-button class="md-raised" aria-label="Learn More">
+         Learn More
+       </md-button>
+     </div>
+   </md-toolbar>
+ </md-content>
+
+    <md-content id="content" layout="column" flex>
+    <md-input-container flex>
+        <label>Search Gifs</label>
+        <input type="text" ng-model="searchText"/>
+    </md-input-container>
+
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <md-button class="md-raised md-warn" ng-click="getDataFromService()">Search</md-button>
+    </section>
+
+<div class="container">
+  <div class="box" ng-repeat="gifs in dataView">
+    <img ng-src="{{gifs.images.downsized_large.url}}" />
+  </div>
+</div>
+</md-content>
+
+
+
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/gifCtrl.js"></script>
+    <script src="./scripts/gifService.js"></script>
+  </body>
+</html>
